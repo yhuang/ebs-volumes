@@ -113,16 +113,6 @@ locals {
     for az in local.availability_zone_list : az => local.tamnoon_nat_gateway_object[az]["id"]
   }
 
-  tamnoon_transit_gateway = {
-    "name" = "tamnoon-transit-gateway"
-  }
-
-  tamnoon_transit_gateway_attachment_name = {
-    "tamnoon-vpc" = "${local.tamnoon_vpc["name"]}-attachment"
-  }
-
-  tamnoon_transit_gateway_id = aws_ec2_transit_gateway.tamnoon.id
-
   tamnoon_security_group = {
     "i--tamnoon-vpc--to--tamnoon-vpc" = aws_security_group.i_tamnoon_vpc_to_tamnoon_vpc.id
     "e--tamnoon-vpc--to--all"         = aws_security_group.e_tamnoon_vpc_to_all.id

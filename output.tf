@@ -26,10 +26,6 @@ output "tamnoon_nat_gateway_id" {
   value = local.tamnoon_nat_gateway_id
 }
 
-output "tamnoon_transit_gateway_id" {
-  value = local.tamnoon_transit_gateway_id
-}
-
 output "tamnoon_security_group" {
   value = local.tamnoon_security_group
 }
