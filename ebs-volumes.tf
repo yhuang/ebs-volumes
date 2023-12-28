@@ -3,4 +3,8 @@ resource "aws_ebs_volume" "acceptance" {
 
   availability_zone = each.value.availability_zone
   size              = 16
+
+  tags = {
+    Name = "acceptance-${each.count + 1}"
+  }
 }
