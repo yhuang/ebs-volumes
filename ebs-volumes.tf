@@ -5,6 +5,6 @@ resource "aws_ebs_volume" "acceptance" {
   size              = 16
 
   tags = {
-    Name = "acceptance-${each.count + 1}"
+    Name = "acceptance-${each.index + 1}"
   }
 }
