@@ -118,4 +118,6 @@ locals {
     "e--tamnoon-vpc--to--all"         = aws_security_group.e_tamnoon_vpc_to_all.id
     "i--home--to--tamnoon-vpc"        = aws_security_group.i_home_to_tamnoon_vpc.id
   }
+
+  acceptance_instance_set = toset(aws_instance.acceptance.*)
 }
