@@ -26,7 +26,7 @@ resource "aws_instance" "tamnoon_public" {
   instance_type = local.instance_input["instance-type"]
 
   key_name  = local.key_pair_name
-  subnet_id = local.tamnoon_subnet["public"]["us-west-2a"]
+  subnet_id = local.tamnoon_subnet["public"]["us-west-2a"]["name"]
   tenancy   = "default"
 
   associate_public_ip_address = true
@@ -49,7 +49,7 @@ resource "aws_instance" "tamnoon_private" {
   instance_type = local.instance_input["instance-type"]
 
   key_name  = local.key_pair_name
-  subnet_id = local.tamnoon_subnet["private"]["us-west-2b"]
+  subnet_id = local.tamnoon_subnet["private"]["us-west-2b"]["name"]
   tenancy   = "default"
 
   associate_public_ip_address = false
