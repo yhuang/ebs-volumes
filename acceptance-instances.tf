@@ -39,9 +39,7 @@ resource "aws_instance" "acceptance" {
     Name = "${local.instance["name"]}-${each.value}"
   }
 
-  ebs_block_device {
-    device_name = "/dev/xvdf"
-
+  root_block_device {
     tags = {
       Name = "${local.instance["name"]}-${each.value}"
     }
