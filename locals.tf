@@ -26,22 +26,28 @@ locals {
     "private",
   ]
 
-  subnet_type_set = toset(local.subnet_type_list)
-
-  instance = {
-    "name" = "acceptance-test"
+  instance_input = {
+    "name" = "tamnoon"
 
     "image" = data.aws_ami.amazon_linux_2.id
 
     "instance-type" = "t2.micro"
 
-    "subnet" = {
-      for t in local.subnet_type_list : t => local.tamnoon_subnet_object[t][local.availability_zone_list[0]]["id"]
-    }
-
     "network-security-rules" = [
       for k, v in local.tamnoon_security_group : v
     ]
+
+    "device-name" = "/dev/xvdf"
+  }
+
+  instance_object = {
+    "pubic"   = aws_instance.tamnoon_public.id
+    "private" = aws_instance.tamnoon_private.id
+  }
+
+  volume_object = {
+    "pubic"   = aws_ebs_volume.tamnoon_public.id
+    "private" = aws_ebs_volume.tamnoon_private.id
   }
 
   tamnoon_subnet = {
