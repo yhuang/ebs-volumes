@@ -1,5 +1,5 @@
 resource "aws_ebs_volume" "tamnoon_public" {
-  availability_zone = local.availability_zone_list["a"]
+  availability_zone = local.availability_zone_list[0]
   size              = 16
 
   tags = {
@@ -14,7 +14,7 @@ resource "aws_volume_attachment" "tamnoon_public" {
 }
 
 resource "aws_ebs_volume" "tamnoon_private" {
-  availability_zone = local.availability_zone_list["b"]
+  availability_zone = local.availability_zone_list[1]
   size              = 16
 
   tags = {
