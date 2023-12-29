@@ -31,7 +31,7 @@ locals {
 
     "image" = data.aws_ami.amazon_linux_2.id
 
-    "instance-type" = "t2.micro"
+    "instance-type" = "t3.micro"
 
     "availability-zone" = local.availability_zone_list[0]
 
