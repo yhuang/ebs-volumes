@@ -44,6 +44,7 @@ locals {
     ]
 
     "device-name" = "/dev/xvdf"
+    "multi-device-name" = "/dev/xvdg"
   }
 
   instance_object = {

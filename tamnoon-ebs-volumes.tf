@@ -42,13 +42,13 @@ resource "aws_volume_attachment" "tamnoon_private" {
 }
 
 resource "aws_volume_attachment" "tamnoon_multi_attach_public" {
-  device_name = local.instance_input["device-name"]
+  device_name = local.instance_input["multi-device-name"]
   volume_id   = local.volume_object["multi-attach"]
   instance_id = local.instance_object["public"]
 }
 
 resource "aws_volume_attachment" "tamnoon_multi_attach_private" {
-  device_name = local.instance_input["device-name"]
+  device_name = local.instance_input["multi-device-name"]
   volume_id   = local.volume_object["multi-attach"]
   instance_id = local.instance_object["private"]
 }
