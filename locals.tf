@@ -119,5 +119,8 @@ locals {
     "i--home--to--tamnoon-vpc"        = aws_security_group.i_home_to_tamnoon_vpc.id
   }
 
-  acceptance_instance_set = toset(aws_instance.acceptance.*)
-}
+  acceptance_instance_map = {
+    for instance in aws_instance.acceptance.* : az => {
+        "id" = aws_subnet.acme_public[az].id
+    }
+  }

@@ -1,10 +1,10 @@
 resource "aws_ebs_volume" "acceptance" {
-  for_each = local.acceptance_instance_set
+  for_each = local.availability_zone_list
 
-  availability_zone = each.value.availability_zone
+  availability_zone = each.value
   size              = 16
 
   tags = {
-    Name = "acceptance-${each.key + 1}"
+    Name = "${local.instance["name"]}-${each.value}"
   }
 }
