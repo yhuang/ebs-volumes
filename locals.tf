@@ -41,12 +41,12 @@ locals {
   }
 
   instance_object = {
-    "pubic"   = aws_instance.tamnoon_public.id
+    "public"  = aws_instance.tamnoon_public.id
     "private" = aws_instance.tamnoon_private.id
   }
 
   volume_object = {
-    "pubic"   = aws_ebs_volume.tamnoon_public.id
+    "public"  = aws_ebs_volume.tamnoon_public.id
     "private" = aws_ebs_volume.tamnoon_private.id
   }
 
