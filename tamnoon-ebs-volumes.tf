@@ -19,7 +19,8 @@ resource "aws_ebs_volume" "tamnoon_private" {
 resource "aws_ebs_volume" "tamnoon_multi_attach" {
   availability_zone = local.instance_input["availability-zone"]
   size              = 16
-
+  type              = "io1"
+  
   multi_attach_enabled = true
 
   tags = {
