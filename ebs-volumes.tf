@@ -1,5 +1,5 @@
 resource "aws_ebs_volume" "acceptance" {
-  for_each = local.availability_zone_list
+  for_each = local.availability_zone_set
 
   availability_zone = each.value
   size              = 16

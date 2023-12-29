@@ -17,6 +17,7 @@ locals {
   availability_zone_list = [
     for letter in ["a", "b"] : "${local.region}${letter}"
   ]
+  availability_zone_set  = toset(local.availability_zone_list)
 
   key_pair_name = aws_key_pair.acloud_guru.id
 
