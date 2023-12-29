@@ -33,6 +33,12 @@ locals {
 
     "instance-type" = "t2.micro"
 
+    "availability-zone" = local.availability_zone_list[0]
+
+    "subnet" = {
+      for t in local.subnet_type_list : t => local.tamnoon_subnet_object[t][local.availability_zone_list[0]]["id"]
+    }
+
     "network-security-rules" = [
       for k, v in local.tamnoon_security_group : v
     ]
@@ -46,8 +52,9 @@ locals {
   }
 
   volume_object = {
-    "public"  = aws_ebs_volume.tamnoon_public.id
-    "private" = aws_ebs_volume.tamnoon_private.id
+    "public"       = aws_ebs_volume.tamnoon_public.id
+    "private"      = aws_ebs_volume.tamnoon_private.id
+    "multi-attach" = aws_ebs_volume.tamnoon_multi_attach.id
   }
 
   tamnoon_subnet = {
