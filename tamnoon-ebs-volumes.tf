@@ -1,3 +1,7 @@
+resource "aws_ebs_encryption_by_default" "tamnoon" {
+  enabled = true
+}
+
 resource "aws_ebs_volume" "tamnoon_public" {
   availability_zone = local.instance_input["availability-zone"]
   size              = 16
