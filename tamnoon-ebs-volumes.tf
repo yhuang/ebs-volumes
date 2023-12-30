@@ -1,6 +1,14 @@
-resource "aws_ebs_encryption_by_default" "tamnoon" {
-  enabled = true
-}
+# resource "aws_ebs_encryption_by_default" "tamnoon" {
+#   enabled = true
+
+#   depends_on = [
+#     aws_ebs_volume.tamnoon_public,
+#     aws_ebs_volume.tamnoon_private,
+#     aws_ebs_volume.tamnoon_multi_attach,
+#     aws_instance.tamnoon_public,
+#     aws_instance.tamnoon_private,
+#   ]
+# }
 
 resource "aws_ebs_volume" "tamnoon_public" {
   availability_zone = local.instance_input["availability-zone"]
