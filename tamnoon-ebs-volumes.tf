@@ -32,18 +32,18 @@ resource "aws_ebs_volume" "tamnoon_private" {
   }
 }
 
-resource "aws_ebs_volume" "tamnoon_multi_attach" {
-  availability_zone = local.instance_input["availability-zone"]
-  size              = 16
-  iops              = 300
-  type              = "io1"
+# resource "aws_ebs_volume" "tamnoon_multi_attach" {
+#   availability_zone = local.instance_input["availability-zone"]
+#   size              = 16
+#   iops              = 300
+#   type              = "io1"
 
-  multi_attach_enabled = true
+#   multi_attach_enabled = true
 
-  tags = {
-    Name = "${local.instance_input["name"]}-multi-attach"
-  }
-}
+#   tags = {
+#     Name = "${local.instance_input["name"]}-multi-attach"
+#   }
+# }
 
 resource "aws_volume_attachment" "tamnoon_public" {
   device_name = local.instance_input["device-name"]
