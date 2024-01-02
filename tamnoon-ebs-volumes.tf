@@ -13,9 +13,9 @@
 resource "aws_ebs_volume" "tamnoon_public" {
   availability_zone = local.instance_input["availability-zone"]
   size              = 16
-  iops              = 100
+  iops              = 3000
   type              = "gp3"
-  
+
   tags = {
     Name = "${local.instance_input["name"]}-public"
   }
@@ -24,7 +24,7 @@ resource "aws_ebs_volume" "tamnoon_public" {
 resource "aws_ebs_volume" "tamnoon_private" {
   availability_zone = local.instance_input["availability-zone"]
   size              = 16
-  iops              = 100
+  iops              = 3000
   type              = "gp3"
 
   tags = {

@@ -39,7 +39,7 @@ resource "aws_instance" "tamnoon_public" {
 
   root_block_device {
     volume_type = "gp3"
-    iops        = 100
+    iops        = 3000
 
     tags = {
       Name = "${local.instance_input["name"]}-public"
@@ -65,8 +65,8 @@ resource "aws_instance" "tamnoon_private" {
 
   root_block_device {
     volume_type = "gp3"
-    iops        = 100
-    
+    iops        = 3000
+
     tags = {
       Name = "${local.instance_input["name"]}-private"
     }
