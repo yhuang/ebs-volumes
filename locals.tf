@@ -55,7 +55,7 @@ locals {
   volume_object = {
     "public"       = aws_ebs_volume.tamnoon_public.id
     "private"      = aws_ebs_volume.tamnoon_private.id
-//    "multi-attach" = aws_ebs_volume.tamnoon_multi_attach.id
+    "multi-attach" = aws_ebs_volume.tamnoon_multi_attach.id
   }
 
   tamnoon_subnet = {
